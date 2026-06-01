@@ -254,18 +254,11 @@ searchInput.addEventListener('input', () => {
         <!-- Changelog Content -->
         <div style="color: #ccc; font-family: monospace; font-size: 14px; line-height: 1.8; overflow: hidden;">
             <div style="margin: 0; white-space: pre-wrap; word-wrap: break-word;">
-<span style="color: #4CAF50;">Notice</span>
+<span style="color: #4CAF50;">✨ Latest Update - Version 3.42</span>
 
-As of the 1st of May we will be switching over to
-the new domain <i>jackwleech.github.io</i>
-on the 1st of May.
-after this date all visits to harshulgoon.github.io
-will be redirected there.
-If you have any save files that you wish to download you should do that now 
-because this will be wiped during the changeover.
-This site will no longer be maintained.
-             Thank you
-             
+• Added <b style="color: white;">Cruelty Squad</b>
+• Added <b style="color: white;">A difficult game about climbing</b>
+
             </div>
         </div>
      
@@ -611,37 +604,40 @@ toggle.onchange = () => {
   🗣️ Chatroom
 </button>
 
+   <button id="omegleBtn" style="padding: 6px 14px; background-color: #1a1a1a; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 14px; box-shadow: 0 0 10px rgba(18, 135, 250, 0.3); transition: box-shadow 0.3s;">
+  📺 Omegle
+</button>
+ 
 </div>
 
 
+     <!---Popup Script-->
 <script>
-// Show popup every time with your button
+// Show popup on first visit or when changelog updates
+const CHANGELOG_VERSION = "3.42"; // Update this when you change the changelog
 
 window.addEventListener('load', function() {
-    const popup = document.getElementById('changelog-popup');
-    const closeBtn = document.getElementById('close-changelog');
+    const lastSeen = localStorage.getItem('lastChangelogVersion');
     
-    if (popup) {
-        popup.style.display = 'flex'; // or 'block'
+    if (lastSeen !== CHANGELOG_VERSION) {
+        document.getElementById('changelog-popup').style.display = 'block';
     }
+    
+    document.getElementById('close-changelog').onclick = function() {
+        document.getElementById('changelog-popup').style.display = 'none';
+        localStorage.setItem('lastChangelogVersion', CHANGELOG_VERSION);
+    };
     
     // Close on background click
-    if (popup) {
-        popup.onclick = function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-            }
-        };
-    }
-    
-    // Close on your button click
-    if (closeBtn) {
-        closeBtn.onclick = function() {
-            popup.style.display = 'none';
-        };
-    }
+    document.getElementById('changelog-popup').onclick = function(e) {
+        if (e.target === this) {
+            this.style.display = 'none';
+            localStorage.setItem('lastChangelogVersion', CHANGELOG_VERSION);
+        }
+    };
 });
 </script>
+
 
 
      
@@ -696,9 +692,9 @@ document.getElementById('chatroomBtn').addEventListener('click', function() {
 });
 </script>
 
-          <script>
+ <script>
 document.getElementById('omegleBtn').addEventListener('click', function() {
-  window.location.href = 'https://mechbroli.github.io/moon.tv/';
+  window.location.href = '/omegle.html';
 });
 </script>
   
@@ -799,6 +795,7 @@ function cloak() {
    <a href="iframes/gunmayhem.html"><img src="resources/gunmayhem.webp"></a>
    <a href="iframes/gunmayhem2.html"><img src="resources/gunmayhem2.webp"></a>
    <a href="iframes/polytrack.html"><img src="resources/polytrack.webp"></a>
+   <a href="iframes/polytrackw+d.html"><img src="resources/polytrackw+d.webp"></a>
    <a href="iframes/bitlife.html"><img src="resources/bitlife.webp"></a>
    <a href="iframes/ageofwar.html"><img src="resources/ageofwar.webp"></a>
    <a href="iframes/ultrakillweb.html"><img src="resources/ultrakill.webp"></a>
@@ -830,6 +827,7 @@ function cloak() {
    <a href="iframes/volleyrandom.html"><img src="resources/volleyrandom.webp"></a>
    <a href="iframes/boxingrandom.html"><img src="resources/boxingrandom.webp"></a>
    <a href="iframes/fnf.html"><img src="resources/fnf.webp"></a>
+   <a href="iframes/ddlc.html"><img src="resources/ddlc.webp"></a>
    <a href="iframes/classof09.html"><img src="resources/classof09.jpg"></a>
    <a href="iframes/classof09tfs.html"><img src="resources/classof09tfs.webp"></a>
    <a href="iframes/miside.html"><img src="resources/miside.webp"></a>
@@ -879,6 +877,10 @@ function cloak() {
    <a href="iframes/plagueinc.html"><img src="resources/plagueinc.jpg"></a>
    <a href="iframes/angrybirds.html"><img src="resources/angrybirds.webp"></a>
    <a href="iframes/metalslug.html"><img src="resources/metalslug.jpg"></a>
+   <a href="iframes/notmyneighbour.html"><img src="resources/notmyneighbour.webp"></a>
+   <a href="iframes/granny.html"><img src="resources/granny.webp"></a>
+   <a href="iframes/adgac.html"><img src="resources/adgac.webp"></a>
+   <a href="iframes/crueltysquad.html"><img src="resources/crueltysquad.webp"></a>
 </div>
 
 
